@@ -14,6 +14,8 @@ import { loadSiteConfig, type SiteConfig } from '@config/site-config.types';
 import { HomePage } from '@pages/home.page';
 import { NavigationPage } from '@pages/navigation.page';
 import { ContactFormPage } from '@pages/contact.page';
+import { LoginPage } from '@pages/login.page';
+import { RegisterPage } from '@pages/register.page';
 
 // ── Fixture type definitions ─────────────────────────────────────────────────
 
@@ -26,6 +28,10 @@ export interface Fixtures {
   navigationPage: NavigationPage;
   /** ContactFormPage page object (does not auto-navigate) */
   contactPage: ContactFormPage;
+  /** LoginPage — auto-navigates to auth.loginUrl */
+  loginPage: LoginPage;
+  /** RegisterPage — auto-navigates to /register */
+  registerPage: RegisterPage;
 }
 
 // ── Extended test object ─────────────────────────────────────────────────────
@@ -66,6 +72,24 @@ export const test = base.extend<Fixtures>({
   contactPage: async ({ page, siteConfig }, use) => {
     const contactPage = new ContactFormPage(page, siteConfig);
     await use(contactPage);
+  },
+
+  /**
+   * loginPage — constructs LoginPage and navigates to auth.loginUrl.
+   */
+  loginPage: async ({ page, siteConfig }, use) => {
+    const loginPage = new LoginPage(page, siteConfig);
+    await loginPage.navigateToLogin();
+    await use(loginPage);
+  },
+
+  /**
+   * registerPage — constructs RegisterPage and navigates to /register.
+   */
+  registerPage: async ({ page, siteConfig }, use) => {
+    const registerPage = new RegisterPage(page, siteConfig);
+    await registerPage.navigateToRegister();
+    await use(registerPage);
   },
 });
 
