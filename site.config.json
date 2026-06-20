@@ -1,23 +1,17 @@
-﻿{
-    "name":  "Enigma Data",
-    "url":  "https://enigmadata.net",
-    "description":  "",
-    "industry":  "",
-    "hasContactForm":  true,
-    "expectedNavItems":  [
-
-                         ],
-    "viewports":  [
-                      "desktop",
-                      "mobile",
-                      "tablet"
-                  ],
-    "skipVisual":  false,
-    "skipForms":  false,
-    "auth":  {
-                 "required":  false,
-                 "loginUrl":  "",
-                 "username":  "",
-                 "password":  ""
-             }
+{
+  "name": "Enigma Data",
+  "url": "https://enigmadata.net",
+  "description": "Data privacy platform",
+  "industry": "Data Privacy / SaaS",
+  "hasContactForm": false,
+  "expectedNavItems": ["Login", "Create Account"],
+  "viewports": ["desktop", "mobile", "tablet"],
+  "skipVisual": false,
+  "skipForms": false,
+  "auth": {
+    "required": true,
+    "loginUrl": "https://enigmadata.net/auth/login",
+    "username": "",
+    "password": ""
+  }
 }

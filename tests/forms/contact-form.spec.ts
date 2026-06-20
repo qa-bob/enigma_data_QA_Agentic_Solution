@@ -201,6 +201,14 @@ test.describe('Contact Form @forms', () => {
       return;
     }
 
+    // Skip if the form has no [required] fields — without required fields, HTML5 validation
+    // cannot prevent submission and the browser will submit the form normally.
+    const requiredFieldCount = await form.locator('[required]').count();
+    if (requiredFieldCount === 0) {
+      test.skip(true, 'Form has no [required] attributes — HTML5 browser validation cannot be tested');
+      return;
+    }
+
     // Click submit without filling any fields
     const submitBtn = form
       .locator('button[type="submit"], input[type="submit"], button:not([type="button"]):not([type="reset"])')

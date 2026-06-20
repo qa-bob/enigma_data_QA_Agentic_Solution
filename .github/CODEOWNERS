@@ -1,0 +1,23 @@
+# CODEOWNERS — Enigma Data QA Suite
+# Syntax: <pattern> <@owner>
+# See: https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/about-code-owners
+
+# Default owner for everything
+*                               @rosmall
+
+# Core framework files — require explicit review
+playwright.config.ts            @rosmall
+tsconfig.json                   @rosmall
+package.json                    @rosmall
+site.config.json                @rosmall
+global-setup.ts                 @rosmall
+src/fixtures/site.fixture.ts    @rosmall
+src/types/site-config.types.ts  @rosmall
+
+# Claude Code configuration
+CLAUDE.md                       @rosmall
+AGENTS.md                       @rosmall
+.claude/                        @rosmall
+
+# CI/CD
+.github/workflows/              @rosmall
