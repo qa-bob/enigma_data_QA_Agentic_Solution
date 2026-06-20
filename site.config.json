@@ -1,13 +1,13 @@
 {
   "name": "Enigma Data",
   "url": "https://enigmadata.net",
-  "description": "Data privacy platform",
-  "industry": "Data Privacy / SaaS",
+  "description": "B2B SaaS platform — auth-gated, no public meta description",
+  "industry": "B2B SaaS",
   "hasContactForm": false,
   "expectedNavItems": ["Login", "Create Account"],
   "viewports": ["desktop", "mobile", "tablet"],
   "skipVisual": false,
-  "skipForms": false,
+  "skipForms": true,
   "auth": {
     "required": true,
     "loginUrl": "https://enigmadata.net/auth/login",
