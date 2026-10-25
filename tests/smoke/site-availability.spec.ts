@@ -55,7 +55,7 @@ test.describe('Site Availability @smoke', () => {
       consoleErrors.push(`[pageerror] ${err.message}`);
     });
 
-    await page.goto(siteConfig.url, { waitUntil: 'networkidle' });
+    await page.goto(siteConfig.url, { waitUntil: 'load' });
 
     // Filter out known benign third-party errors (analytics, ads, etc.)
     const criticalErrors = consoleErrors.filter((err) => {
@@ -90,8 +90,8 @@ test.describe('Site Availability @smoke', () => {
   });
 
   test('page has a title and meta description @smoke', async ({ page, siteConfig }) => {
-    // Use networkidle so JS-rendered titles (React/Remix/Vue SPAs) have time to be set
-    await page.goto(siteConfig.url, { waitUntil: 'networkidle' });
+    // Wait for the load event; the waitForFunction below gives JS-rendered titles time to be set
+    await page.goto(siteConfig.url, { waitUntil: 'load' });
 
     // Wait up to 5s for a JS-rendered title to appear (Remix/React hydration)
     await page.waitForFunction(
